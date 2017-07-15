@@ -1,0 +1,1 @@
+{"version": "2014.04.19.16.30.06", "description": "Debug Sublime Plugins with Winpdb graphical python debugger.", "url": "http://quelltexter.org/", "platforms": ["*"], "dependencies": [], "sublime_text": "*"}

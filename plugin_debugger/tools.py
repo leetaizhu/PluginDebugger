@@ -374,6 +374,7 @@ def get_python_interpreter():
 
     if not PYTHON_CHECKED:
         r = subprocess.call([python, '-c', 'import winpdb'])
+        r = subprocess.call([python, '-c', 'import pydevd'])
 
         if r != 0:
             exe = subprocess.Popen([python, '-c', 'import sys;print(sys.executable)'],

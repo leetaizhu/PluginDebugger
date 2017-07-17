@@ -181,7 +181,7 @@ class SublimeTextSourceProvider:
     def _handle_existing(self, filename):
         log("  existing? %s" , filename)
         if os.path.exists(filename):
-            with open(filename, 'r') as fh:
+            with open(filename, 'r', encoding='utf-8') as fh:
                 return fh.read()
 
         raise IOError()

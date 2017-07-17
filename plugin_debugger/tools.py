@@ -229,7 +229,7 @@ class SublimeTextSourceProvider:
         log("  plugin_file? %s", filename)
         self._update_package_files()
         fn = self._package_python_files[os.path.basename(filename)]
-        with open(fn, 'r') as fh:
+        with open(fn, 'r', encoding='utf-8') as fh:
             return fh.read()
 
         raise IOError()
@@ -244,7 +244,7 @@ class SublimeTextSourceProvider:
         if filename.startswith('Packages/'):
             _fn = os.path.join(self._packaged_path, filename[9:])
             if os.path.exists(_fn):
-                with open(_fn, 'r') as fh:
+                with open(_fn, 'r', encoding='utf-8') as fh:
                     return fh.read()
             return sublime.load_resource(filename)
 
@@ -282,7 +282,7 @@ def sublime_text_source_provider(filename):
     log("try exists")
     if os.path.exists(filename):
         log("exists: %s", filename)
-        with open(filename, 'r') as fh:
+        with open(filename, 'r', encoding='utf-8') as fh:
             return fh.read()
 
     log("try sublime_plugin")
@@ -307,7 +307,7 @@ def sublime_text_source_provider(filename):
             log("PYTHON_FILES: %s", PYTHON_FILES)
 
         if _fn in PYTHON_FILES:
-            with open(PYTHON_FILES[_fn], 'r') as fh:
+            with open(PYTHON_FILES[_fn], 'r', encoding='utf-8') as fh:
                 return fh.read()
 
         assert not ST3
@@ -361,7 +361,7 @@ def sublime_text_source_provider(filename):
             raise IOError()
 
 
-    with open(PYTHON_FILES[fn], 'r') as fh:
+    with open(PYTHON_FILES[fn], 'r', encoding='utf-8') as fh:
         return fh.read()
 
 PYTHON_CHECKED = False
